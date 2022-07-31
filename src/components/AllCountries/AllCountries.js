@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { apiURL } from "../util/api";
-
 import SearchInput from "../Search/SearchInput";
 import FilterCountry from "../FilterCountry/FilterCountry";
-
 import { Link } from "react-router-dom";
 
 const AllCountries = () => {
@@ -18,8 +16,6 @@ const AllCountries = () => {
       if (!res.ok) throw new Error("Something went wrong!");
 
       const data = await res.json();
-
-      console.log(data);
 
       setCountries(data);
 
@@ -50,7 +46,7 @@ const AllCountries = () => {
     try {
       const res = await fetch(`${apiURL}/region/${regionName}`);
 
-      if (!res.ok) throw new Error("Failed..........");
+      if (!res.ok) throw new Error("Failed...");
 
       const data = await res.json();
       setCountries(data);
@@ -79,7 +75,7 @@ const AllCountries = () => {
       </div>
 
       <div className="country__bottom">
-        {isLoading && !error && <h4>Loading........</h4>}
+        {isLoading && !error && <h4>Loading...</h4>}
         {error && !isLoading && <h4>{error}</h4>}
 
         {countries?.map((country) => (

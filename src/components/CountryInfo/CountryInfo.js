@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { apiURL } from "../util/api";
-import { Link } from "react-router-dom";
 
 const CountryInfo = () => {
   const [country, setCountry] = useState([]);
@@ -9,9 +8,6 @@ const CountryInfo = () => {
   const [error, setError] = useState("");
 
   const { countryName } = useParams();
-
-  const borders = country.map((country) => country.borders);
-
   useEffect(() => {
     const getCountryByName = async () => {
       try {
@@ -34,11 +30,11 @@ const CountryInfo = () => {
 
   return (
     <div className="country__info__wrapper">
-      <button>
-        <Link to="/">Back</Link>
-      </button>
+      <Link to="/">
+        <button>Back</button>
+      </Link>
 
-      {isLoading && !error && <h4>Loading........</h4>}
+      {isLoading && !error && <h4>Loading...</h4>}
       {error && !isLoading && { error }}
 
       {country?.map((country, index) => (
