@@ -1,17 +1,23 @@
 import "./App.css";
-import { ChakraProvider } from "@chakra-ui/react";
-import Header from "./components/header";
-import Searchbar from "./components/searchBar";
-import CountryCard from "./components/countryCard";
+import { Routes, Route } from "react-router-dom";
+import AllCountries from "./components/AllCountries/AllCountries";
+import CountryInfo from "./components/CountryInfo/CountryInfo";
+
 function App() {
   return (
-    <ChakraProvider>
-      <>
-        <Header></Header>
-        <Searchbar></Searchbar>
-        <CountryCard></CountryCard>
-      </>
-    </ChakraProvider>
+    <>
+      <div className="header">
+        <div className="container">
+          <h5>Where in the world?</h5>
+        </div>
+      </div>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<AllCountries />} />
+          <Route path="/country/:countryName" element={<CountryInfo />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
