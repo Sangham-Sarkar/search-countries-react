@@ -3,7 +3,7 @@ import { apiURL } from "../util/api";
 import SearchInput from "../Search/SearchInput";
 import FilterCountry from "../FilterCountry/FilterCountry";
 import { Link } from "react-router-dom";
-
+//call
 const AllCountries = () => {
   const [countries, setCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

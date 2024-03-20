@@ -14,7 +14,7 @@
 }
 
 body {
-  background: hsl(207, 26%, 17%);
+  background: hsl(206, 26%, 17%);
 }
 
 .header {
@@ -162,4 +162,16 @@ a {
   color: #fff;
   opacity: 85%;
   font-weight: 400;
+}
+
+@media (max-width: 400px) {
+  .country__bottom {
+    column-gap: 1rem;
+    row-gap: 1rem;
+  }
+  .country__img img {
+    height: 100px;
+  }
+
+  /* . */
 }

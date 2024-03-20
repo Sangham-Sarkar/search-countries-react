@@ -11,7 +11,7 @@ const CountryInfo = () => {
   useEffect(() => {
     const getCountryByName = async () => {
       try {
-        const res = await fetch(`${apiURL}/name/${countryName}`);
+        const res = await fetch(`${apiURL}/name/${countryName}?fullText=true`);
 
         if (!res.ok) throw new Error("Could not found!");
 
@@ -28,16 +28,20 @@ const CountryInfo = () => {
     getCountryByName();
   }, [countryName]);
 
+  const borderCountryFinder = async (border) => {
+    const borderCountry = await fetch(`${apiURL}/alpha/${border}`);
+    const res = await borderCountry.json();
+    console.log(res[0].name.common);
+    return res[0].name.common;
+  };
   return (
     <div className="country__info__wrapper">
       <Link to="/">
         <button>Back</button>
       </Link>
-
       {isLoading && !error && <h4>Loading...</h4>}
       {error && !isLoading && { error }}
-
-      {country?.map((country, index) => (
+      {country.map((country, index) => (
         <div className="country__info__container" key={index}>
           <div className="country__info-img">
             <img src={country.flags.png} alt="" />
@@ -61,6 +65,12 @@ const CountryInfo = () => {
               </h5>
               <h5>
                 Capital: <span>{country.capital}</span>
+              </h5>
+              <h5>
+                Border Countries:
+                {country.borders.map((border) => {
+                  return borderCountryFinder(border);
+                })}
               </h5>
             </div>
           </div>
