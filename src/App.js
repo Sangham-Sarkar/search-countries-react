@@ -2,7 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import AllCountries from "./components/AllCountries/AllCountries";
 import CountryInfo from "./components/CountryInfo/CountryInfo";
-
+//main
 function App() {
   return (
     <>
