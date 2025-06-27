@@ -11,7 +11,7 @@ const AllCountries = () => {
 
   const getAllCountries = async () => {
     try {
-      const res = await fetch(`${apiURL}/all`);
+      const res = await fetch(`${apiURL}/all?fields=name,flags,capital,region,population`);
 
       if (!res.ok) throw new Error("Something went wrong!");
 
