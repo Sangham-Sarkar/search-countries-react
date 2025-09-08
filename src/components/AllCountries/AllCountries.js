@@ -10,6 +10,8 @@ const AllCountries = () => {
   const [error, setError] = useState("");
 
   const getAllCountries = async () => {
+    setIsLoading(true); // Start loading for every fetch
+    setError("");       // Reset error before fetch
     try {
       const res = await fetch(`${apiURL}/all?fields=name,flags,capital,region,population`);
 
@@ -21,12 +23,15 @@ const AllCountries = () => {
 
       setIsLoading(false);
     } catch (error) {
+      setCountries([]); // Clear previous results
       setIsLoading(false);
       setError(error.message);
     }
   };
 
   const getCountryByName = async (countryName) => {
+    setIsLoading(true); // Start loading for every search
+    setError("");       // Reset error before search
     try {
       const res = await fetch(`${apiURL}/name/${countryName}`);
 
@@ -37,12 +42,15 @@ const AllCountries = () => {
 
       setIsLoading(false);
     } catch (error) {
+      setCountries([]); // Clear previous results
       setIsLoading(false);
       setError(error.message);
     }
   };
 
   const getCountryByRegion = async (regionName) => {
+    setIsLoading(true); // Start loading for every filter
+    setError("");       // Reset error before filter
     try {
       const res = await fetch(`${apiURL}/region/${regionName}`);
 
@@ -53,8 +61,9 @@ const AllCountries = () => {
 
       setIsLoading(false);
     } catch (error) {
+      setCountries([]); // Clear previous results
       setIsLoading(false);
-      setError(false);
+      setError("Failed...");
     }
   };
 
