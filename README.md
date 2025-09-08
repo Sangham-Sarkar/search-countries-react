@@ -56,23 +56,6 @@ npm start
 Open your browser:
 Open http://localhost:3000 to view it in the browser. The page will reload if you make edits.
 
-📂 Project Structure
-search-countries-react/
-├── public/
-│   ├── index.html
-│   └── ...
-├── src/
-│   ├── components/
-│   │   ├── Countries.js
-│   │   └── Search.js
-│   ├── App.css
-│   ├── App.js
-│   ├── index.css
-│   └── index.js
-├── .gitignore
-├── package.json
-└── README.md
-
 License
 This project is open-source. Feel free to use it as you wish. If you'd like to add a specific license, the MIT License is a great choice for projects like this.
 
